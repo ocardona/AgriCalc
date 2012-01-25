@@ -1,0 +1,37 @@
+#!/usr/bin/env python
+
+import sys
+import re
+import subprocess
+
+av = list(sys.argv)
+av[0] = "ant"
+
+p = subprocess.Popen(av, stdout = subprocess.PIPE)
+
+javac_rex = re.compile(" +[[]javac[]] +")
+line_rex = re.compile("[.]java:[\d]+:")
+
+pending = ""
+while True:
+    d = p.stdout.read(128)
+    if not d:
+        break
+
+    d = pending + d
+
+    nx = d.rfind('\n')
+    if nx == -1:
+        pending = d
+        continue
+    else:
+        d, pending = d[:nx + 1], d[nx + 1:]
+
+        d = javac_rex.sub("", d)
+        d = line_rex.sub(r"\g error: ", d)
+        sys.stdout.write(d)
+        sys.stdout.flush()
+
+sys.stdout.write(pending)
+p.wait()
+sys.exit(p.returncode)
