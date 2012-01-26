@@ -9,6 +9,7 @@ public class MainActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        // Comentario de prueba
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
