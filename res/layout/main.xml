@@ -1,17 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-    <Button android:layout_height="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <TextView
+            android:id="@+id/labelInputArea"
             android:layout_width="fill_parent"
-            android:text="Calculate" />
+            android:layout_height="wrap_content"
+            android:text="@string/inputAreaText"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
+    <EditText
+            android:id="@+id/entry"
+            android:numeric="decimal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background"
+            android:layout_below="@id/labelInputArea"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"/>
 
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/explanation"
-    />
-</LinearLayout>
+    <RadioGroup
+            android:id="@+id/rbgInputUnits"
+            android:layout_below="@id/entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15px"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+        <RadioButton android:id="@+id/rbFromMz"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="mz"/>
+        <RadioButton android:id="@+id/rbFromHa"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="true"
+                     android:text="ha"/>
+        <RadioButton android:id="@+id/rbFromVrs2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="vrs2"/>
+        <RadioButton android:id="@+id/rbFromMts2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="mts2"/>
+    </RadioGroup>
+
+    <RadioGroup
+            android:id="@+id/rbgOutputUnits"
+            android:layout_below="@id/rbgInputUnits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15px"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+        <RadioButton android:id="@+id/rbToMz"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="mz"/>
+        <RadioButton android:id="@+id/rbToHa"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="ha"/>
+        <RadioButton android:id="@+id/rbToVrs2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="vrs2"/>
+        <RadioButton android:id="@+id/rbToMts2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:checked="true"
+                     android:text="mts2"/>
+    </RadioGroup>
+    <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rbgOutputUnits"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10px"
+            android:text="@string/buttonConvertText"/>
+
+    <EditText
+            android:id="@+id/output"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/editbox_background"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_below="@id/btnOk"
+            android:editable="false"
+            android:layout_marginTop="15px"/>
+
+</RelativeLayout>
 

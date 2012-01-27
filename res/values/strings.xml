@@ -2,4 +2,9 @@
 <resources>
     <string name="app_name">AgriCalc</string>
     <string name="explanation">Calculadora para conversiones de area</string>
+    <string name="outputAreaText">Resultado</string>
+    <string name="unitOutputAreaText">A :</string>
+    <string name="unitInputAreaText">De</string>
+    <string name="inputAreaText">Ingrese el area a convertir</string>
+    <string name="buttonConvertText">Convertir</string>
 </resources>
